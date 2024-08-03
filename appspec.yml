@@ -2,8 +2,8 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/counter-app-master
+    destination: /home/ubuntu/ec2-project
 permissions:
-  - object: /home/ubuntu/counter-app-master
+  - object: /home/ubuntu/ec2-project
     owner: ubuntu
     group: ubuntu
