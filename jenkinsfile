@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                withCredentials([sshUserPrivateKey(
+                    credentialsId: 'counter-rohini',
+                    keyFileVariable: 'SSH_KEY')]) {
+                    sh '''
+                        mkdir -p ~/.ssh
+                        ssh-keyscan -H 13.232.196.198 >> ~/.ssh/known_hosts 
+                        scp -i $SSH_KEY -r build/* ec2-user@13.232.196.198:/var/www/html
+                        ssh -i $SSH_KEY ec2-user@13.232.196.198 'sudo systemctl restart httpd'
+                    '''
+                }
+                // Commands to deploy your build, e.g., copying files to a server
+            }
+        }
+    }
+}

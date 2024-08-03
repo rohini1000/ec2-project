@@ -1,0 +1,9 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/counter-app-master
+permissions:
+  - object: /home/ubuntu/counter-app-master
+    owner: ubuntu
+    group: ubuntu
