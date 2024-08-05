@@ -2,8 +2,8 @@ version: 0.0
 os: linux
 files:
   - source: /build/
-    destination: /home/ubuntu/ec2-project-1
+    destination: /home/ubuntu/ec2-project
 permissions:
-  - object: /home/ubuntu/ec2-project-1
+  - object: /home/ubuntu/ec2-project
     owner: ubuntu
     group: ubuntu
