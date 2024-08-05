@@ -1,9 +1,9 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /home/runner/work/ec2-project/ec2-project
+  - source: /build/
+    destination: /home/ubuntu/ec2-project
 permissions:
-  - object: /home/runner/work/ec2-project/ec2-project
+  - object: /home/ubuntu/ec2-project
     owner: ubuntu
     group: ubuntu
